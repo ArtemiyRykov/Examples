@@ -17,7 +17,7 @@ void Method2(string msg) // Метод ничего не возвращает н
 
 void Method21(string msg, int count) // Метод ничего не возвращает но может пренимать какието аргументы (2 аргумента)
 {
-    int i=0;
+    int i = 0;
     while (i < count)
     {
         Console.WriteLine(msg);
@@ -73,7 +73,7 @@ Console.WriteLine(res);*/
 
 
 // Цикл в цикле ТАблица умножения
-
+/*
 for (int i = 2; i <= 10; i++)
 {
     for (int j = 2; j <= 10; j++)
@@ -82,6 +82,52 @@ for (int i = 2; i <= 10; i++)
     }
     Console.WriteLine( );
 }
-   
+ 
+ 
+ 
+ 
+   */
+
+//    Дан текст. В тексте нужно все пробелы заменить черточками, 
+// маленькие буквы “к” заменить большими “К”, а большие “С” заменить 
+// маленькими “с”.
+// Ясна ли задача?
+
+// Что значит “Дан текст”?. 
+// Что значит “черточками”?
+// Какого алфавита?
+// Маленькие буквы “к” заменить большими “К”, а большие “С” заменить 
+// маленькими “с”.
+// Ясна ли задача?
+
+string text = "— Я думаю, — сказал князь, улыбаясь, — что,"
+             + "ежели бы вас послали вместо нашего милого Винценгероде,"
+             + "вы бы взяли приступом согласие прусского короля."
+             + "Вы так красноречивы. Вы дадите мне чаю?";
 
 
+// string s == "qwert"
+//              0123
+// s[3] //r
+
+string Replace(string text, char oldValue, char newValue)
+{
+    string result = string.Empty;  // инициализация пустой строки 
+
+    int length = text.Length;  // получили длину строки (кол-во символов в строке)
+    for (int i = 0; i < length; i++) // циклом пробегаемся от нулевого символа до конца строки
+    {
+        if(text[i] == oldValue) result = result + $"{newValue}"; // если текуций текст (text[i])совпал с символом который хотим заменить(oldValue) то в результат (result) кладем новое значение (newValue)
+        else result = result + $"{text[i]}"; //еслежи совпадений не обнаружено в result добавляем текущий символ который и был        
+    }
+    return result;  // вернули рерузьтат
+}
+
+string newText = Replace(text, ' ', '|'); // присвоили Replace(text, ' ', '|')  это == Replace(string text (text), char oldValue (' ' он же пробел), char newValue ('|')) вывели текст и вместо пробелов поставели полочки
+Console.WriteLine(newText);    
+Console.WriteLine();   
+newText = Replace(newText, 'к', 'К');
+Console.WriteLine(newText);
+Console.WriteLine();
+newText = Replace(newText, 'с', 'С');
+Console.WriteLine(newText);
