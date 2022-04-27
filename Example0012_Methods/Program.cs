@@ -100,6 +100,7 @@ for (int i = 2; i <= 10; i++)
 // маленькими “с”.
 // Ясна ли задача?
 
+/*
 string text = "— Я думаю, — сказал князь, улыбаясь, — что,"
              + "ежели бы вас послали вместо нашего милого Винценгероде,"
              + "вы бы взяли приступом согласие прусского короля."
@@ -131,3 +132,41 @@ Console.WriteLine(newText);
 Console.WriteLine();
 newText = Replace(newText, 'с', 'С');
 Console.WriteLine(newText);
+*/
+
+
+int[] arr = { 1, 5, 4, 3, 2, 6, 7, 1, 1 }; // завели массив
+
+void PrintArray(int[] array) //метод для вывода на экран
+{
+    int count = array.Length; //получение кол-во элементов
+
+    for (int i = 0; i < count; i++) //пробегаемся по всем элементам массива
+    {
+        Console.Write($"{array[i]} ");  // показываем на экране
+    }
+    Console.WriteLine();
+}
+
+
+void SelectionSort(int[] array)  //метод упорядочивания массива
+{
+    for (int i = 0; i < array.Length -1 ; i++)
+    {
+        int minPosition = i; // определения позиции на которую смотрим
+
+        for (int j = i + 1; j < array.Length + 1; j++)  //ищем минимальный элемент
+        {
+            if (array[j] < array[minPosition]) minPosition = j;
+        }
+
+        int temporary = array[i]; // меняем позицию с которой нашли
+        array[i] = array[minPosition]; // в рабочию позицию ([i]) кладем позицию которую нашли ([minPosition])
+        array[minPosition] = temporary; // обмен переменных (temporary) временная переменная
+    }
+}
+
+PrintArray(arr);
+SelectionSort(arr);
+
+PrintArray(arr);
